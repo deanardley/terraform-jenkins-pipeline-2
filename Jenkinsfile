@@ -6,7 +6,7 @@ pipeline{
     }
 
     environment{
-        GOOGLE_APPLICATION_CREDENTIALS = "${WORKSPACE}/keys.json"
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-service-account-key')
     }
 
     stages{
@@ -17,6 +17,7 @@ pipeline{
         }
 
         stage('Terraform Plan'){
+            
             steps{
                 script{
                     if(params.ACTION == 'apply'){
