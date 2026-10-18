@@ -17,7 +17,6 @@ pipeline{
         }
 
         stage('Terraform Plan'){
-            
             steps{
                 script{
                     if(params.ACTION == 'apply'){
